@@ -1,0 +1,12 @@
+# ============================= #
+# Ignore de node_modules folder #
+# ============================= #
+
+[Nn]ode_modules/
+
+
+# ================================ #
+# Ignore de package-lock.json file #
+# ================================ #
+
+package-lock.json
