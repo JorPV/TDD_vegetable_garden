@@ -49,13 +49,14 @@ const getTotalYield = (farmCropsYield, factors) => {
     farmCropsYield.vegetables.map((vegetables) => {
       totalYield += vegetables.crop.yield * vegetables.numCrops;
     });
+    console.log(totalYield)
     return totalYield;
   } else {
     farmCropsYield.vegetables.map((vegetables) => {
-      totalYield += Math.round(
+      totalYield = Math.round(
         getYieldForCrop(vegetables.crop, factors) * vegetables.numCrops
       );
-    });
+    }).reduce((a, b) => a + b);
     console.log(totalYield);
     return totalYield;
   }
@@ -91,8 +92,8 @@ module.exports = {
   getYieldForPlant,
   getYieldForCrop,
   getTotalYield,
-  getCostsForCrop,
-  getRevenueForCrop,
-  getProfitForCrop,
+  //getCostsForCrop,
+  //getRevenueForCrop,
+  //getProfitForCrop,
   // getTotalProfit,
 };
