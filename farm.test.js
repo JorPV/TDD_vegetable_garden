@@ -187,14 +187,13 @@ describe("getTotalYield", () => {
     },
   ];
 
+  test("Calculate total yield with 0 amount", () => {
+    // let vegetables = [{ numCrops: 0 }];
+    expect(getTotalYield({ vegetables })).toBe(12);
+  });
+  
   test("Calculate total yield with multiple crops", () => {
     expect(getTotalYield({ vegetables })).toBe(43);
-  });
-
-  test("Calculate total yield with 0 amount", () => {
-    let vegetables = [{ crop: corn, numCrops: 0 }];
-
-    expect(getTotalYield({ vegetables })).toBe(0);
   });
 
   test("Calculate total yield WITH environmental factors", () => {

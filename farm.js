@@ -41,8 +41,8 @@ const getYieldForCrop = (vegetables, factors) => {
   }
 };
 
-// Calculate total yield with multiple crops
 // Calculate total yield with 0 amount
+// Calculate total yield with multiple crops
 const getTotalYield = (farmCropsYield, factors) => {
   let totalYield = 0;
   if (!factors) {
