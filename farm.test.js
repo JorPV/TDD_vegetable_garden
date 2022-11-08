@@ -94,19 +94,10 @@ describe("getYieldForCrop", () => {
   };
 
   const vegetables = [
-    {
-      crop: corn,
-      numCrops: 10,
-    },
-    {
-      crop: pumpkin,
-      numCrops: 2,
-    },
-    {
-      crop: tomatoes,
-      numCrops: 4,
-    },
-  ];
+    { crop: corn, numCrops: 10 },
+    { crop: pumpkin, numCrops: 2 },
+    { crop: tomatoes,numCrops: 4 },
+  ]; 
 
   test("Get yield for crop, simple", () => {
     expect(getYieldForCrop(vegetables[1])).toBe(8);
@@ -114,7 +105,6 @@ describe("getYieldForCrop", () => {
 
   test("Get yield for crop, WITH environmental factors", () => {
     const environmentFactors = { sun: "medium", wind: "high" };
-
     expect(getYieldForCrop(vegetables[2], environmentFactors)).toBe(12);
   });
 });
@@ -173,23 +163,14 @@ describe("getTotalYield", () => {
   };
 
   const vegetables = [
-    {
-      crop: corn,
-      numCrops: 5,
-    },
-    {
-      crop: pumpkin,
-      numCrops: 2,
-    },
-    {
-      crop: tomatoes,
-      numCrops: 4,
-    },
+    { crop: corn, numCrops: 5 },
+    { crop: pumpkin, numCrops: 2 },
+    { crop: tomatoes,numCrops: 4 },
   ];
 
   test("Calculate total yield with 0 amount", () => {
-    // let vegetables = [{ numCrops: 0 }];
-    expect(getTotalYield({ vegetables })).toBe(12);
+    const vegetables = [{ crop: corn, numCrops: 0 }];
+    expect(getTotalYield({ vegetables })).toBe(0);
   });
   
   test("Calculate total yield with multiple crops", () => {
@@ -197,9 +178,8 @@ describe("getTotalYield", () => {
   });
 
   test("Calculate total yield WITH environmental factors", () => {
-    let environmentFactors = [{ sun: "high", wind: "high" }];
-
-    expect(getTotalYield({vegetables}, environmentFactors)).toBe(0);
+    const environmentFactors = [{ sun: "high", wind: "high" }];
+    expect(getTotalYield({ vegetables }, environmentFactors)).toBe(0);
   });
 });
 
