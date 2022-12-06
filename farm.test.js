@@ -105,7 +105,7 @@ describe("getYieldForCrop", () => {
 
   test("Get yield for crop, WITH environmental factors", () => {
     const environmentFactors = { sun: "medium", wind: "high" };
-    expect(getYieldForCrop(vegetables[2], environmentFactors)).toBe(12);
+    expect(getYieldForCrop(veggies[2], environmentFactors)).toBe(12);
   });
 });
 
