@@ -96,7 +96,7 @@ describe("getYieldForCrop", () => {
   const veggies = [
     { crop: corn, numCrops: 10 },
     { crop: pumpkin, numCrops: 2 },
-    { crop: tomatoes,numCrops: 4 },
+    { crop: tomatoes, numCrops: 4 },
   ]; 
 
   test("Get yield for crop, simple", () => {

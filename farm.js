@@ -37,7 +37,7 @@ const getYieldForCrop = (vegetables, factors) => {
   } else {
   // yield WITH environmental factors
     yieldPerCrop = Math.round(
-      getYieldForPlant(vegetables.crop.yield, factors) * vegetables.numCrops
+      getYieldForPlant(vegetables.crop, factors) * vegetables.numCrops
     );
     return yieldPerCrop;
   }
@@ -56,7 +56,7 @@ const getTotalYield = (farmYield, factors) => {
   //total yield WITH environmental factors
     farmYield.vegetables.forEach((veggie) => {
       totalYield = Math.round(
-        getYieldForCrop(veggie.crop.yield, factors) * veggie.numCrops
+        getYieldForCrop(veggie.crop, factors) * veggie.numCrops
       );
     }).reduce((a, b) => a + b);
     return totalYield;
