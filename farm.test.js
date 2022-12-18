@@ -183,6 +183,7 @@ describe("getTotalYield", () => {
   });
 });
 
+
 // 4. CALCULATE THE COST FOR A CROP 
 describe("getCostsForCrop", () => {
     const corn = {
