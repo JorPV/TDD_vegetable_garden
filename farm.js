@@ -54,10 +54,10 @@ const getTotalYield = (farmYield, factor) => {
     return totalYield;
   } else {
   //total yield WITH environmental factors
-    farmYield.vegetables.forEach((vegetable) => {
+    farmYield.vegetables.forEach((vegetable, factor) => {
       totalYield = Math.round(
-        getYieldForCrop(vegetable.crop, factor) * vegetable.numCrops 
-      );
+        getYieldForCrop(vegetable, factor) * vegetable.numCrops
+      )
     }).reduce((a, b) => a + b);
     return totalYield;
   }
@@ -101,8 +101,8 @@ module.exports = {
   getYieldForPlant,
   getYieldForCrop,
   getTotalYield,
-  getCostsForCrop,
-  getRevenueForCrop,
+  // getCostsForCrop,
+  // getRevenueForCrop,
   //getProfitForCrop,
   //getTotalProfit,
 };
