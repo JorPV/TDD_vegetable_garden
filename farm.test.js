@@ -93,19 +93,19 @@ describe("getYieldForCrop", () => {
     },
   };
 
-  const veggies = [
-    { crop: corn, numCrops: 10 },
+  const vegetables = [
+    { crop: corn, numCrops: 5 },
     { crop: pumpkin, numCrops: 2 },
     { crop: tomatoes, numCrops: 4 },
   ]; 
 
   test("Get yield for crop, simple", () => {
-    expect(getYieldForCrop(veggies[1])).toBe(8);
+    expect(getYieldForCrop(vegetables[1])).toBe(8);
   });
 
   test("Get yield for crop, WITH environmental factors", () => {
-    const environmentFactors = { sun: "medium", wind: "high" };
-    expect(getYieldForCrop(veggies[2], environmentFactors)).toBe(12);
+    const environmentFactors = {sun: "high", wind: "high"};
+    expect(getYieldForCrop(vegetables[2], environmentFactors)).toBe(20);
   });
 });
 
@@ -178,8 +178,8 @@ describe("getTotalYield", () => {
   });
 
   test("Calculate total yield with environmental factors", () => {
-    const environmentFactors = [{ sun: "high", wind: "high" }];
-    expect(getTotalYield({ vegetables }, environmentFactors)).toBe(0);
+    const environmentFactors = { sun: "high", wind: "high" };
+    expect(getTotalYield({ vegetables }, environmentFactors)).toBe(36);
   });
 });
 

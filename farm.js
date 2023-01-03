@@ -49,16 +49,16 @@ const getTotalYield = (farmYield, factor) => {
   let totalYield = 0;  
   if (!factor) {
     farmYield.vegetables.forEach((vegetable) => {
-      totalYield += vegetable.crop.yield * vegetable.numCrops;
+      totalYield += getYieldForCrop(vegetable)
     });
     return totalYield;
   } else {
   //total yield WITH environmental factors
-    farmYield.vegetables.forEach((vegetable, factor) => {
-      totalYield = Math.round(
-        getYieldForCrop(vegetable, factor) * vegetable.numCrops
+    farmYield.vegetables.forEach((vegetable) => {
+      totalYield += Math.round(
+        getYieldForCrop(vegetable, factor)
       )
-    }).reduce((a, b) => a + b);
+    });
     return totalYield;
   }
 };
