@@ -68,11 +68,11 @@ const getCostsForCrop = (vegetables) =>
   vegetables.sowingPrice * vegetables.plantsPerCrop * vegetables.numCrops;
 
 // 5.Calculate the revenue for a crop (without environmental factors)
-const getRevenueForCrop = (vegetables, factors) => {
+const getRevenueForCrop = (vegetable, factors) => {
 let revenue = 0;
   if(!factors) {
-    revenue = vegetables.salePrice *
-    (vegetables.yield * vegetables.plantsPerCrop * vegetables.numCrops);
+    revenue = vegetable.salePrice *
+    (vegetable.yield * vegetable.plantsPerCrop * vegetable.numCrops);
     return revenue;
   }else{
   //revenue for a crop WITH environmental factors    
@@ -81,28 +81,28 @@ let revenue = 0;
 };  
 
 // 6. Calculate the profit for a crop (without environmental factors)
-const getProfitForCrop = (vegetables) => {
-  return getRevenueForCrop(vegetables) - getCostsForCrop(vegetables);
+const getProfitForCrop = (vegetable) => {
+  return getRevenueForCrop(vegetable) - getCostsForCrop(vegetable);
 };
 
 // 7. Calculate the profit for multiple crops (without environmental factors)
-const getTotalProfit = (crops) => {
-
-  const profitPerCrop = crops.map(getRevenueForCrop(crops)); //push the profit of each crop into the array
-
-  profitPerCrop.reduce((previousValue, currentValue) => {
-    const sumProfit = previousValue + currentValue;
-    return sumProfit;
-  });
-  return sumProfit;
+const getTotalProfit = (vegetables) => {
+  const profitPerCrop = getProfitForCrop(vegetables).map; 
+  console.log(profitPerCrop);//push the profit of each crop into the array
+  return profitPerCrop;
+  // profitPerCrop.reduce((previousValue, currentValue) => {
+  //   const sumProfit = previousValue + currentValue;
+  //   return sumProfit;
+  // });
+  // return sumProfit;
 };
 
 module.exports = {
   getYieldForPlant,
   getYieldForCrop,
   getTotalYield,
-  // getCostsForCrop,
-  // getRevenueForCrop,
-  //getProfitForCrop,
-  //getTotalProfit,
+  getCostsForCrop,
+  getRevenueForCrop,
+  getProfitForCrop,
+  getTotalProfit,
 };
